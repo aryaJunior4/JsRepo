@@ -1,64 +1,116 @@
-/* Reset default margin and padding for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Style for the body of the webpage */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-}
-
-/* Style for the header section containing the title */
-.header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Style for the input box to add new tasks */
-#input-box {
-    width: 70%;
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg ,#153677, #4e085f);
     padding: 10px;
-    margin: 10px auto;
-    display: block;
 }
 
-/* Style for the list container holding tasks */
-#list-container {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
 }
 
-/* Style for individual task items */
-#list-container li {
-    background-color: #fff;
-    padding: 12px;
-    border-bottom: 1px solid #ccc;
+.todo-app h2{
+    color: #002675;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    border-radius: 30px;
+}
+
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 40px;
 }
 
-/* Style for checked (completed) tasks */
-#list-container li.checked {
-    background-color: #888;
-    color: white;
+
+ul li{
+    list-style: none;
+    font-size: large;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius:50px ;
+    background-image: url("unchecked.png");
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked{
+    color: #555;
     text-decoration: line-through;
 }
 
-/* Style for the delete (X) symbol in tasks */
-#list-container li span {
-    float: right;
-    cursor: pointer;
+ul li.checked::before{
+    background-image: url("checked.png");
 }
 
-/* Style for delete (X) symbol on hover */
-#list-container li span:hover {
-    color: red;
+ul li span{
+    position: absolute ;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover{
+    background: #edeef0;
 }
